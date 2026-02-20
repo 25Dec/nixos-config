@@ -80,18 +80,23 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nhtnhan-nixos = {
+  users.users.nixos = {
     isNormalUser = true;
-    description = "Thien Nhan";
+    description = "NixOS";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
+      git
+      google-chrome
+      vscode
+      go
+      gcc
+      nodejs
+      jdk
     ];
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -100,14 +105,6 @@
   # $ nix search wget
   # nix.settings.experimental-features = ["nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
-    google-chrome
-    telegram-desktop
-    go
-    vscode
-    git
-    gcc
-    solaar
-    neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
